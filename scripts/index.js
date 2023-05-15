@@ -29,3 +29,11 @@ const mostrarCurso = curso => {
   `
   elem.appendChild(hijo)
 }
+
+const formulario = document.getElementById('formCursos')
+formulario.addEventListener('submit', e => {
+  e.preventDefault()
+  const target = e.target
+  const curso = new Curso(target.nombreCurso.value,target.posterCurso.value,target.clasesCurso.value)
+  mostrarCurso(curso)
+})
