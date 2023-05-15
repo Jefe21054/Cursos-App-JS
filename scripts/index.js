@@ -1,4 +1,6 @@
 import Curso from './classes/Curso.js'
+import Profesor from './classes/Profesor.js'
+import Alumno from './classes/Alumno.js'
 
 const elem = document.getElementById('cursos')
 
@@ -37,3 +39,12 @@ formulario.addEventListener('submit', e => {
   const curso = new Curso(target.nombreCurso.value,target.posterCurso.value,target.clasesCurso.value)
   mostrarCurso(curso)
 })
+
+const profe = new Profesor('Ivan','Iglesias','ivan@ed.team',true,['Python desde cero','Desarrollo web con Django','Desarrollo web con Flask','React desde cero'],10)
+
+const alumno1 = new Alumno('Beto','Quiroga','beto@ed.team',false,['JavaScript desde cero','React desde cero'])
+const alumno2 = new Alumno('Alexys','Lozada','alexys@ed.team',true,['Go desde cero','Java desde cero','JavaSceript desde cero'])
+
+const cursoReact = new Curso('React desde cero','https://ed.team/_next/image?url=https%3A%2F%2Fedteam-media.s3.amazonaws.com%2Fcourses%2Fbig%2F9521c07e-3eb1-4b9a-b1d1-a310d843ece2.png&w=3840&q=75',25)
+
+cursoReact.setInscritos([...cursoReact.getInscritos(),alumno1])
