@@ -12,10 +12,24 @@ const elem = document.getElementById('cursos')
  */
 const mostrarCurso = curso => {
   const hijo = document.createElement('div')
+  hijo.classList.add('card')
   hijo.innerHTML = `
-    <img src="${curso.getPoster()}"/>
-    <h3>${curso.getNombre()}</h3>
-    <span>Cantidad de clases: ${curso.getClases()}</span>
+    <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+      <img src="${curso.getPoster()}" alt="${curso.getNombre}"/>
+    </div>
+    <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+      <h3 class="t5 s-mb-2 s-center">${curso.getNombre()}</h3>
+      <div class="s-mb-2 s-main-center">
+        <div class="card__teacher s-cross-center">
+          <div class="card__avatar s-mr-1">
+            <div class="circle img-container">
+              <img src="./icons/learn.png" alt="Learn">
+            </div>
+          </div>
+          <span class="small">Cantidad de clases: ${curso.getClases()}</span>
+        </div>
+      </div>
+    </div>
   `
   elem.appendChild(hijo)
 }
